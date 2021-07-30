@@ -16,6 +16,9 @@ class _HomeViewState extends State<HomeView> {
     "https://images.unsplash.com/photo-1494905998402-395d579af36f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
   ];
 
+  String _title = "Sale #1";
+  String _title2 = "Sale #2";
+
   List<Map<String,String>> _list1Data = [
     {
       "itemImg" : "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
@@ -32,6 +35,110 @@ class _HomeViewState extends State<HomeView> {
       "itemName" : "상품3",
       "itemPrice" : "30,000원"
     },
+  ];
+
+  List<Map<String,String>> _list2Data = [
+    {
+      "itemImg" : "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "itemName" : "상품5",
+      "itemPrice" : "10,000원"
+    },
+    {
+      "itemImg" : "https://images.unsplash.com/photo-1609608934376-e9a499e6ef67?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "itemName" : "상품6",
+      "itemPrice" : "20,000원"
+    },
+    {
+      "itemImg" : "https://images.unsplash.com/photo-1617201929478-8eedff7508f9?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "itemName" : "상품7",
+      "itemPrice" : "30,000원"
+    },
+  ];
+
+  Map<String, dynamic> _item1 = {
+    "title" : "Sale #1",
+    "listData" : [
+      {
+        "itemImg" : "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        "itemName" : "상품1",
+        "itemPrice" : "10,000원"
+      },
+      {
+        "itemImg" : "https://images.unsplash.com/photo-1609608934376-e9a499e6ef67?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        "itemName" : "상품2",
+        "itemPrice" : "20,000원"
+      },
+      {
+        "itemImg" : "https://images.unsplash.com/photo-1617201929478-8eedff7508f9?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        "itemName" : "상품3",
+        "itemPrice" : "30,000원"
+      },
+    ]
+  };
+
+  Map<String, dynamic> _item2 = {
+    "title" : "Sale #2",
+    "listData" : [
+      {
+        "itemImg" : "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        "itemName" : "상품5",
+        "itemPrice" : "10,000원"
+      },
+      {
+        "itemImg" : "https://images.unsplash.com/photo-1609608934376-e9a499e6ef67?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        "itemName" : "상품6",
+        "itemPrice" : "20,000원"
+      },
+      {
+        "itemImg" : "https://images.unsplash.com/photo-1617201929478-8eedff7508f9?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        "itemName" : "상품7",
+        "itemPrice" : "30,000원"
+      },
+    ]
+  };
+
+  List<Map<String,dynamic>> _items = [
+    {
+      "title" : "Sale #1",
+      "listData" : [
+        {
+          "itemImg" : "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "itemName" : "상품1",
+          "itemPrice" : "10,000원"
+        },
+        {
+          "itemImg" : "https://images.unsplash.com/photo-1609608934376-e9a499e6ef67?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "itemName" : "상품2",
+          "itemPrice" : "20,000원"
+        },
+        {
+          "itemImg" : "https://images.unsplash.com/photo-1617201929478-8eedff7508f9?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "itemName" : "상품3",
+          "itemPrice" : "30,000원"
+        },
+      ]
+    },
+
+    {
+      "title" : "Sale #2",
+      "listData" : [
+        {
+          "itemImg" : "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "itemName" : "상품5",
+          "itemPrice" : "10,000원"
+        },
+        {
+          "itemImg" : "https://images.unsplash.com/photo-1609608934376-e9a499e6ef67?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "itemName" : "상품6",
+          "itemPrice" : "20,000원"
+        },
+        {
+          "itemImg" : "https://images.unsplash.com/photo-1617201929478-8eedff7508f9?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "itemName" : "상품7",
+          "itemPrice" : "30,000원"
+        },
+      ]
+    }
   ];
 
   @override
@@ -53,15 +160,24 @@ class _HomeViewState extends State<HomeView> {
         child: Column(
           children: [
             this._topBanner(),
-            this._saleList1(),
-            this._saleList1(),
+            Container(
+              child: Column(
+                children: this._items.map<Widget>((Map<String,dynamic> e) => this._saleList1(item: List.of( e["listData"]), title: e["title"].toString())).toList()
+                // children: [
+                //   this._saleList1(item: List.of(this._items[0]["listData"]), title: this._items[0]["title"].toString()),
+                //   this._saleList1(item: List.of(this._items[1]["listData"]), title: this._items[1]["title"].toString()),
+                // ],
+              ),
+            ),
             Container()
           ],
         )
       ),
     );
   }
-
+  // 1. 함수는 묶어서 사용하는 용도
+  // 2. 공통되는 부분은 묶어 두고 변경 부분만 인자로 받아서 활용.
+  // 단계 : 1각각 변수에 담는 것 2변수를 Map으로 묶는것 3Map들을 리스트로 묶어서 map함수로 사용.
   Widget _topBanner(){
     return Container(
       child: Column(
@@ -155,7 +271,7 @@ class _HomeViewState extends State<HomeView> {
   // 함수의 인자로 만들어서 변경되는 부분을 3번째 컨테이너로 구현.
   // 인자 : 함수기본 / 네이밍 옵션
   // 컴퓨팅적 사고 유튜브.
-  Widget _saleList1(){
+  Widget _saleList1({required List<Map<String,String>> item, required String title }){
     return Container(
       color: Colors.lightBlueAccent,
       height: 250,
@@ -166,7 +282,7 @@ class _HomeViewState extends State<HomeView> {
             color: Colors.red,
             alignment: Alignment.centerLeft,
             child: Text(
-              "Sale #1",
+              title,  //1 String
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold
@@ -181,7 +297,7 @@ class _HomeViewState extends State<HomeView> {
                 mainAxisSpacing: 10.0,
                 crossAxisCount: 1,
               ),
-              itemCount: this._list1Data.length,
+              itemCount: item.length, //5 int(List의 )
               itemBuilder: (BuildContext context, int i){
                 return Container(
                   color: Colors.yellow,
@@ -192,7 +308,7 @@ class _HomeViewState extends State<HomeView> {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: NetworkImage(this._list1Data[i]["itemImg"].toString())
+                              image: NetworkImage(item[i]["itemImg"].toString()) //2 List요소-
                             )
                           ),
                         )
@@ -203,13 +319,13 @@ class _HomeViewState extends State<HomeView> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              this._list1Data[i]["itemName"].toString(),
+                              item[i]["itemName"].toString(), //3
                               style: TextStyle(
                                 color: Colors.green,
                                 fontWeight: FontWeight.bold
                               ),
                             ),
-                            Text(this._list1Data[i]["itemPrice"].toString())
+                            Text(item[i]["itemPrice"].toString()) //4
                           ],
                         ),
                       )
