@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:selfproject_layout/Pages/Views/detailPage.dart';
 
 class HomeView extends StatefulWidget {
 
@@ -147,7 +148,7 @@ class _HomeViewState extends State<HomeView> {
 
 
   Map<String, dynamic> _sales3 = {
-    "title" : "Sale 3",
+    "title" : "Sale #3",
     "items" : [
       [
         {
@@ -199,6 +200,9 @@ class _HomeViewState extends State<HomeView> {
   // 1. 함수는 묶어서 사용하는 용도
   // 2. 공통되는 부분은 묶어 두고 변경 부분만 인자로 받아서 활용.
   // 단계 : 1각각 변수에 담는 것 2변수를 Map으로 묶는것 3Map들을 리스트로 묶어서 map함수로 사용.
+  // 함수의 인자로 만들어서 변경되는 부분을 3번째 컨테이너로 구현.
+  // 인자 : 함수기본 / 네이밍 옵션
+  // 컴퓨팅적 사고 유튜브.
   Widget _topBanner(){
     return Container(
       child: Column(
@@ -289,18 +293,15 @@ class _HomeViewState extends State<HomeView> {
       )
     );
   }
-  // 함수의 인자로 만들어서 변경되는 부분을 3번째 컨테이너로 구현.
-  // 인자 : 함수기본 / 네이밍 옵ㅁ션
-  // 컴퓨팅적 사고 유튜브.
-  Widget _saleList1({required List<Map<String,String>> item, required String title }){
+  Widget _saleList({required List<Map<String,String>> item, required String title }){
     return Container(
-      color: Colors.lightBlueAccent,
+      //color: Colors.lightBlueAccent,
       height: 250,
       child: Column(
         children: [
           Container(
             padding: EdgeInsets.only(left: 10.0, top: 20.0, bottom: 10),
-            color: Colors.red,
+            //color: Colors.red,
             alignment: Alignment.centerLeft,
             child: Text(
               title,  //1 String
@@ -321,7 +322,7 @@ class _HomeViewState extends State<HomeView> {
               itemCount: item.length, //5 int(List의 )
               itemBuilder: (BuildContext context, int i){
                 return Container(
-                  color: Colors.yellow,
+                  color: Colors.green,
                   child: Column(
                     children: [
                       Expanded(
@@ -342,7 +343,7 @@ class _HomeViewState extends State<HomeView> {
                             Text(
                               item[i]["itemName"].toString(), //3
                               style: TextStyle(
-                                color: Colors.green,
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold
                               ),
                             ),
@@ -363,7 +364,7 @@ class _HomeViewState extends State<HomeView> {
   Widget _sales(){
     return Container(
       child: Column(
-          children: this._items.map<Widget>((Map<String,dynamic> e) => this._saleList1(item: List.of( e["listData"]), title: e["title"].toString())).toList()
+          children: this._items.map<Widget>((Map<String,dynamic> e) => this._saleList(item: List.of( e["listData"]), title: e["title"].toString())).toList()
         // children: [
         //   this._saleList1(item: List.of(this._items[0]["listData"]), title: this._items[0]["title"].toString()),
         //   this._saleList1(item: List.of(this._items[1]["listData"]), title: this._items[1]["title"].toString()),
@@ -377,9 +378,45 @@ class _HomeViewState extends State<HomeView> {
       // 위젯의 구조, 데이터의 구조 먼저 짜두고 코드 작성.
       child: Column(
         children: _items.map<Widget>((e){
-          if(_items.indexOf(e) == 0 ) return Text("title");
-
-          return Text("Item");
+          if(_items.indexOf(e) == 0 )
+            return Container(
+              padding: EdgeInsets.all(15.0),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                this._sales3["title"].toString(),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20.0
+                ),
+              )
+            );
+          return Container(
+            height: 250.0,
+            child: Row(
+              children: List.of(this._sales3["items"][e-1]).map(
+                (v) => Expanded(
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).push(
+                       MaterialPageRoute(builder: (BuildContext context) => DetailPage())
+                      );
+                    },
+                    child: Container(
+                      margin: List.of(this._sales3["items"][e-1]).indexOf(v) == 0
+                        ? EdgeInsets.only(right: 5.0, bottom: 10.0)
+                        : EdgeInsets.only(left: 5.0, bottom: 10.0),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(v["img"].toString()) // 알고리즘 공부
+                        )
+                      ),
+                    ),
+                  ),
+                ),
+              ).toList()
+            ),
+          );
         }).toList()
         //children: List.of(this._sales3["items"]).map<Wiget>((List<Map<String,dynamic>> e) => ).toList()
         // children: [
