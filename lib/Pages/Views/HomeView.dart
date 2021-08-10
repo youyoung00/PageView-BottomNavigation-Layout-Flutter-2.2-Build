@@ -16,7 +16,7 @@ class _HomeViewState extends State<HomeView> {
     "https://images.unsplash.com/photo-1542362567-b07e54358753?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTl8fGNhcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "https://images.unsplash.com/photo-1494905998402-395d579af36f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
   ];
-  
+
   String _title = "Sale #1";
   String _title2 = "Sale #2";
 
@@ -141,11 +141,6 @@ class _HomeViewState extends State<HomeView> {
       ]
     }
   ];
-
-
-
-
-
 
   Map<String, dynamic> _sales3 = {
     "title" : "Sale #3",
